@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel="stylesheet" href="history.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <div class="navigation">
+        <div class="logo">
+            <img src="images/uic-logo.png" alt="UIC Logo">
+        </div>
+        <div class="line">
+            <img src="images/vertical-line.png" alt="Line">
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="request.html">REQUEST</a></li>
+                <li><a href="history.html">HISTORY</a></li>
+                <li><a href="#">ROOMS</a></li>
+                <li><a href="#"><img src="images/profile-icon.png" alt="Profile"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--------Image------->
+    <div class="head-image">
+        <img src="images/history-image.png" alt="">
+
+    </div>
+
+    <!--------Filter Campus------->
+    <div class="container">
+        <img class="filter-icon" src="images/filter-icon.png" alt="Filter Icon">
+        <div class="filter-text">
+            <span>ALL</span>
+            <span>MAIN CAMPUS</span>
+            <span>ANNEX CAMPUS</span>
+        </div>
+    </div>
+    <hr class="hr-line">
+
+        <!-- Table with Additional Label Text -->
+<table class="additional-labels">
+    <tr>
+        <td>Date</td>
+        <td>Room Name</td>
+        <td>ID</td>
+        <td>Campus</td>
+        <td>Accept/Delete</td>
+    </tr>
+
+    <tr class="table-row" data-toggle="modal" data-target="#detailsModal">
+        <td>03/30/2024</td>
+        <td>L201</td>
+        <td>210000000217</td>
+        <td>Main Campus</td>
+        <td>
+            <button class="accept">Accept</button>
+            <button class="delete">Delete</button>
+        </td>
+    </tr>
+
+</table>
+
+    <!-- Modal -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <!-- Add modal content here -->
+            <span class="close">&times;</span>
+            <h2>USER HISTORY</h2>
+            <hr>
+            <div class="info-container">
+                <div class="left-column">
+                    <p><strong>Room Name:</strong></p>
+                    <p><strong>Type:</strong></p>
+                    <p><strong>Date:</strong></p>
+                    <p><strong>Time Slot:</strong></p>
+                </div>
+                <div class="right-column">
+                    <p><strong>Status:</strong></p>
+                    <p><strong>Account Name:</strong></p>
+                    <p><strong>ID:</strong></p>
+                    <p class="right-align"><strong>Request Form:</strong> <input type="file" id="fileInput"> </p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <script>
+        //<!-- JavaScript to show modal when table row is clicked -->
+            document.addEventListener("DOMContentLoaded", function() {
+        const tableRows = document.querySelectorAll(".table-row");
+        const modal = document.getElementById('detailsModal');
+        const closeButton = modal.querySelector('.close');
+    
+        tableRows.forEach(function(row) {
+            row.addEventListener("click", function() {
+                modal.classList.add("show");
+                modal.classList.add("scale-animation"); // Apply scale animation
+    
+                // Close modal when close button is clicked
+                closeButton.addEventListener('click', function() {
+                    modal.classList.remove('show');
+                });
+    
+                // Remove scale animation after it finishes
+                setTimeout(function() {
+                    modal.classList.remove("scale-animation");
+                }, 300); // Adjust the timing to match the animation duration
+            });
+        });
+    });
+        </script>
+
+</body>
+</html>
